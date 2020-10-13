@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+    body{
+    background-color: cadetblue;
+    text-align: center;
+    margin: 10;
+}
+</style>
+
+
+<title>Dom </title>
+</head>
+
+<body>
+
+<main>
+<h2 class="text-center" style="text-align: center;">alert after submit</h2>
+
+<div id="myform">
+<form class="form">
+<i>First Name</i><br /><input id="fName" type="text" size="30" required /><br /><br />
+<i>Last Name</i><br /> <input id="lName" type="text" size="30" required /><br /><br />
+<i>Email-Id</i><br /><input id="eMail" type="text" size="30" required /><br /><br />
+<i>Phone No.</i><br /> <input id="phn" type="text" size="10" required /><br /><br />
+
+<i>Discription:</i><br />
+<textarea id="query" rows="4" cols="50" name="comment" required></textarea><br /><br />
+
+&emsp;&emsp;<button id="show" type="submit"
+value="Submit">Submit</button><span>&emsp;&emsp;&emsp;</span><button type="reset">Reset</button>
+</form>
+</div>
+</main>
+
+<script>
+document.getElementById("show").onclick = function () {
+let complete = true;
+let fName = document.getElementById("fName").value,
+lName = document.getElementById("lName").value,
+eMail = document.getElementById("eMail").value,
+phn = document.getElementById("phn").value,
+query = document.getElementById("query").value;
+
+document.getElementById("myform").querySelectorAll("[required]").forEach(function (i) {
+if (!complete) return;
+if (!i.value) complete = false;
+});
+
+if (!complete) {
+alert('All the fields are mandatory');
+} else {
+alert(`Full Name : ${fName} ${lName} \nEmail-Id : ${eMail} \nPhone No. : ${phn} \nQuery : ${query}`);
+}
+};
+</script>
+</body>
+
+</html>
